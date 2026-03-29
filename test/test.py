@@ -19,7 +19,7 @@ async def test_lab2_logic(dut):
                 value = (c << 2) | (b << 1) | a
                 dut.ui_in.value = value
 
-                await Timer(1, units="ns")
+               await Timer(20, unit="ns")
 
                 f_out = int(dut.uo_out.value) & 0x1
                 y_out = (int(dut.uo_out.value) >> 1) & 0x1
