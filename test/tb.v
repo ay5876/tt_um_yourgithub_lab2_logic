@@ -10,7 +10,7 @@ module tb;
     reg        clk;
     reg        rst_n;
 
-    tt_um_yourgithub_lab2_logic uut (
+    tt_um_yourgithub_lab2_logic dut (
         .ui_in(ui_in),
         .uo_out(uo_out),
         .uio_in(uio_in),
@@ -25,13 +25,13 @@ module tb;
         $dumpfile("tb.vcd");
         $dumpvars(0, tb);
 
-        ui_in  = 8'b0;
-        uio_in = 8'b0;
+        ui_in  = 8'b00000000;
+        uio_in = 8'b00000000;
         ena    = 1'b1;
         clk    = 1'b0;
         rst_n  = 1'b1;
 
-        #100;
+        #2000;
         $finish;
     end
 
