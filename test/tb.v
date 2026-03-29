@@ -10,6 +10,23 @@ module tb;
     reg        clk;
     reg        rst_n;
 
+`ifdef GL_TEST
+    wire VPWR = 1'b1;
+    wire VGND = 1'b0;
+
+    tt_um_yourgithub_lab2_logic dut (
+        .VPWR(VPWR),
+        .VGND(VGND),
+        .ui_in(ui_in),
+        .uo_out(uo_out),
+        .uio_in(uio_in),
+        .uio_out(uio_out),
+        .uio_oe(uio_oe),
+        .ena(ena),
+        .clk(clk),
+        .rst_n(rst_n)
+    );
+`else
     tt_um_yourgithub_lab2_logic dut (
         .ui_in(ui_in),
         .uo_out(uo_out),
@@ -20,6 +37,7 @@ module tb;
         .clk(clk),
         .rst_n(rst_n)
     );
+`endif
 
     initial begin
         $dumpfile("tb.vcd");
