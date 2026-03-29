@@ -27,7 +27,7 @@ async def test_lab2_logic(dut):
 
                 await Timer(20, unit="ns")
 
-                out_str = dut.uo_out.value.binstr.lower()
+                out_str = str(dut.uo_out.value).lower()
 
                 assert "x" not in out_str, (
                     f"Output still unknown for A={a}, B={b}, C={c}: {out_str}"
